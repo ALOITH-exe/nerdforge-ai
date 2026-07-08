@@ -1,4 +1,4 @@
-"# 🛡️ NerdForge AI
+🛡️ NerdForge AI
 
 ## Autonomous AI Security Operations Center
 
