@@ -27,6 +27,8 @@ class Scenario(Base):
     assets = Column(JSON)
     security_controls = Column(JSON)
     attack_stages = Column(JSON)
+    objectives = Column(JSON)
+    indicators = Column(JSON)
     
     created_at = Column(DateTime, default=datetime.utcnow)
     

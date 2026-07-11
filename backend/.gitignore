@@ -1,0 +1,21 @@
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.mypy_cache/
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite3
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store

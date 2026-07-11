@@ -20,56 +20,19 @@ class AttackPlannerAgent(BaseAgent):
         environment = input_data.get('environment', 'On-Premise')
         custom_scenario = input_data.get('custom_scenario', None)
         
-        # If user provided custom scenario, use it directly
-        if custom_scenario:
-            result = self._parse_custom_scenario(custom_scenario)
-        else:
-            # Generate with AI
-            result = await self.llm.generate_scenario(
-                industry=industry,
-                attack_type=attack_type,
-                difficulty=difficulty.lower(),
-                os=os,
-                environment=environment.lower().replace(' ', '-')
-            )
+        # If user provided a custom scenario description, still generate a
+        # full MITRE-mapped scenario via the AI - just steer it with the
+        # user's text instead of ignoring it.
+        result = await self.llm.generate_scenario(
+            industry=industry,
+            attack_type=attack_type,
+            difficulty=difficulty.lower(),
+            os=os,
+            environment=environment.lower().replace(' ', '-'),
+            custom_scenario=custom_scenario
+        )
         
         # Store in context
         self.update_context('attack_plan', result)
         
         return result
-    
-    def _parse_custom_scenario(self, custom_scenario: str) -> Dict[str, Any]:
-        """Parse user-provided custom scenario"""
-        return {
-            "company_profile": {
-                "name": "Custom Company",
-                "employees": 100,
-                "industry": "Custom",
-                "description": custom_scenario[:200]
-            },
-            "network_topology": {
-                "architecture": "Custom network",
-                "segments": ["Internal", "DMZ"],
-                "security_controls": ["Firewall", "IDS"]
-            },
-            "attack_stages": [
-                {
-                    "stage": "Custom Attack",
-                    "technique": "Custom Technique",
-                    "mitre_tactic": "TA0001",
-                    "mitre_technique": "T0000",
-                    "description": custom_scenario,
-                    "commands": ["custom command"],
-                    "tools": ["custom tool"]
-                }
-            ],
-            "timeline": [
-                {
-                    "time": "00:00",
-                    "action": "Attack Started",
-                    "description": custom_scenario[:100]
-                }
-            ],
-            "objectives": ["Custom objective"],
-            "indicators": ["Custom indicator"]
-        }
