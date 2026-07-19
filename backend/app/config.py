@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     # set CORS_ORIGINS in Railway to your deployed frontend URL(s).
     CORS_ORIGINS: str = os.getenv(
         "CORS_ORIGINS",
-        "http://localhost:5173,http://localhost:3000"
+        "http://localhost:5173,https://frontend-production-46e2.up.railway.app"
     )
 
     # Server
