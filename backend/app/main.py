@@ -33,7 +33,12 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
+print(app.user_middleware)
 
 # Include routers
 app.include_router(attacks.router)
