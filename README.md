@@ -209,7 +209,7 @@ NerdForge AI follows a modular architecture separating the presentation layer, A
 │                         FRONTEND                                │
 │                         React + TypeScript                      │
 │                                                                 │
-│  Scenario Generator │ SOC Dashboard │ MITRE │ Reports │ Tutor  │
+│  Scenario Generator │ SOC Dashboard │ MITRE │ Reports │ Tutor   │
 └───────────────────────────────┬─────────────────────────────────┘
                                 │
                                 │ REST API
@@ -239,10 +239,10 @@ NerdForge AI follows a modular architecture separating the presentation layer, A
 ┌─────────────────┐   ┌─────────────────┐   ┌────────────────────┐
 │ Threat Intel    │   │ Security        │   │ Attack Simulation  │
 │                 │   │ Frameworks      │   │                    │
-│ VirusTotal      │   │ MITRE ATT&CK    │   │ Atomic Red Team     │
+│ VirusTotal      │   │ MITRE ATT&CK    │   │ Atomic Red Team    │
 │ AbuseIPDB       │   │ Sigma           │   │ MCP Integrations   │
 └─────────────────┘   │ YARA            │   └────────────────────┘
-                      │ Snort/Suricata   │
+                      │ Snort/Suricata  │
                       └─────────────────┘
                                 │
                                 ▼
