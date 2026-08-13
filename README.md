@@ -35,7 +35,7 @@ Instead of treating an LLM as a generic chatbot, NerdForge AI uses AI-driven wor
 
 ```text
                     ┌──────────────────────┐
-                    │      Security Team    │
+                    │      Security Team   │
                     └──────────┬───────────┘
                                │
                                ▼
